@@ -1,37 +1,31 @@
 #include <iostream>
 #include "fractions.h"
 
-using namespace simple_fraction;
+using namespace fractions;
 
 int main ()
 {
   setlocale (LC_ALL,"Russian");
   
-  Fraction A = Fraction(1,4);
+  Fraction A = Fraction(-1,1,3);
   
-  Fraction B = Fraction(1,2);
+  Fraction B = Fraction(1,3);
   
   A.print ();
-  std::cout << "Десятичное представление: " <<A.to_decimal () << std::endl;
+  std::cout << "Десятичное представление: " <<A.decimal_view () << std::endl;
   
   B.print ();
-  std::cout << "Десятичное представление: " <<B.to_decimal () << std::endl;
+  std::cout << "Десятичное представление: " <<B.decimal_view () << std::endl;
   
-  Fraction C = A+B;
-  C.print ();
-  std::cout << "Десятичное представление: " <<C.to_decimal () << std::endl;
-    
-  C = A-B;
-  C.print ();
-  std::cout << "Десятичное представление: " <<C.to_decimal () << std::endl;
+  B++;
+  B.print ();
+  std::cout << "Десятичное представление: " <<B.decimal_view () << std::endl;
   
-  C = A*B;
+  Fraction C = A/B;
   C.print ();
-  std::cout << "Десятичное представление: " <<C.to_decimal () << std::endl;
+  std::cout << "Десятичное представление: " <<C.decimal_view () << std::endl;
   
-  C = A/B;
-  C.print ();
-  std::cout << "Десятичное представление: " <<C.to_decimal () << std::endl;
+  std::cout << (A>B) << std::endl;
   
   return 0;
 }
