@@ -333,11 +333,11 @@ namespace fractions
   
   bool operator>= (const Fraction& left, const Fraction& right)
   {
-    return left == right || left > right;
+    return !(left < right);
   }
   
   bool operator<= (const Fraction& left, const Fraction& right)
   {
-    return left == right || left < right;
+    return !(left > right);
   }
 }
