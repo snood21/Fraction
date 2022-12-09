@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 
 namespace fractions
 {
@@ -17,6 +18,8 @@ namespace fractions
   bool operator< (Fraction left, Fraction right);
   bool operator>= (const Fraction& left, const Fraction& right);
   bool operator<= (const Fraction& left, const Fraction& right);
+  std::ostream& operator<< (std::ostream& os, const Fraction& obj);
+  Fraction& operator>> (std::istream& is, Fraction& obj);
   
   class Fraction
   {
@@ -32,9 +35,11 @@ namespace fractions
     //Constractors
     Fraction();
     Fraction (const int &integer);
+    Fraction (const double &decimal);
     Fraction (const int &numerator, const unsigned int &denominator);
     Fraction (const int &integer, const unsigned int &numerator, const unsigned int &denominator);
     Fraction (const Fraction& other);
+    ~Fraction();
     //Get
     bool get_negative () const;
     unsigned int get_integer () const;
@@ -51,12 +56,14 @@ namespace fractions
     Fraction& operator-=(const Fraction& other);
     Fraction& operator*=(const Fraction& other);
     Fraction& operator/=(const Fraction& other);
+    //Type-cast operstors
+    explicit operator int() const;
+    explicit operator double() const;
     //Methods
     void print ();
     Fraction& to_simple();
     Fraction& to_compound();
     Fraction inverted() const;
     Fraction& shrink ();
-    double decimal_view();
   };
 }

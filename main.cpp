@@ -1,4 +1,3 @@
-#include <iostream>
 #include "fractions.h"
 
 using namespace fractions;
@@ -7,26 +6,17 @@ int main ()
 {
   setlocale (LC_ALL,"Russian");
   
-  Fraction A = Fraction(-1,1,3);
+  Fraction A;
   
-  Fraction B = Fraction(1,3);
-  
-  A.print ();
-  std::cout << "Десятичное представление: " <<A.decimal_view () << std::endl;
-  
-  B.print ();
-  std::cout << "Десятичное представление: " <<B.decimal_view () << std::endl;
-  
-  B++;
-  B.print ();
-  std::cout << "Десятичное представление: " <<B.decimal_view () << std::endl;
-  
-  Fraction C = A/B;
-  C.print ();
-  std::cout << "Десятичное представление: " <<C.decimal_view () << std::endl;
-  
-  std::cout << (A>B) << std::endl;
-  
+  std::cout << "Введите простую дробь: ";
+  std::cin >> A;
+  std::cout << A << std::endl << std::endl;
+    
+  Fraction B = 2.75;
+  std::cout << B << std::endl;
+  B.shrink().to_compound();
+  std::cout << B << std::endl;
+    
   return 0;
 }
 
